@@ -1,0 +1,57 @@
+@use '../foundation/index' as *;
+
+.header_nav {
+  @include media() {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    opacity: 0;
+    transition: opacity var(--speed);
+    pointer-events: none;
+  }
+
+  .is-open & {
+    @include media() {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+.nav_button,
+.nav_button-close {
+  display: none;
+
+  @include media() {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    width: 100rem;
+    height: 100rem;
+  }
+}
+
+.nav_button {
+  @include media() {
+    display: flex;
+
+    .is-open {
+      display: none;
+    }
+  }
+}
+
+.nav_button-close {
+  @include media() {
+    display: none;
+
+    .is-open & {
+      display: flex;
+    }
+  }
+}
